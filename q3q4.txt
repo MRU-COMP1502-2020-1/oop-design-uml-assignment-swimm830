@@ -1,0 +1,41 @@
+Q3: prog2 is better than prog1 in terms of design consideration. prog 2 uses private variables rather than prog1, which is a far better design choice. Private variables are
+important as this name can now be set using a setter method, rather than the variable name being set directly. A private string uses loose coupling in this fashion. Prvate variables
+will not impact other classes, which means that less issues will be called.
+
+Q4: MyReader is created to read in the resource in question, however it contains code that is not important to the overall purpose of this program. The beginning section of code with FTP 
+and ping does not matter for reading in the resource, and should be placed in a different class for better coding practices.
+
+The code can be rewritten like this:
+
+class MyReader {
+
+    // read the resource from disk
+    public String readFromDisk(String fileName) {
+         return "data of " + fileName;
+    }
+
+    // read the resource from web
+    public String readFromWeb(String url) {
+         return "data of " + url;
+    }
+
+    // read the resource from network
+    public String readFromNetwork(String networkAddress) {
+         return "data of " + networkAddress;
+    }
+
+}
+
+class check() {
+
+ public boolean validateLocation(String pathIP) {
+         return ping(pathIP) && checkFTP(pathIP);
+    }
+    private boolean checkFTP(String pathIP) {
+         return true;
+    }
+
+    private boolean ping(String pathIP) {
+          return true;
+    }
+}
